@@ -75,7 +75,7 @@ def img_ocr(req: func.HttpRequest) -> func.HttpResponse:
     extracted_text = ocr_read(img_url)
     return func.HttpResponse(f"Extracted Text:\n\n{extracted_text}", status_code=200)
 
-@app.route(route="img_uploader")
+@app.route(route="img_uploader", methods=["GET", "POST"])
 def img_uploader(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
